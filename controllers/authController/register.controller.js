@@ -1,4 +1,4 @@
-import User from "../models/user.model.js";
+import User from "../../models/user.model.js";
 import bcrypt from "bcrypt";
 
 // Register logic
@@ -48,7 +48,6 @@ const registerUser = async (req, res) => {
     });
   } catch (error) {
     // Server Error
-    console.error("Registration error:", error);
     return res.status(500).json({
       success: false,
       message: "Server error during registration",
