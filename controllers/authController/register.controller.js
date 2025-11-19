@@ -1,5 +1,7 @@
 import User from "../../models/user.model.js";
 import bcrypt from "bcrypt";
+import generateToken from "../../utils/generateToken.js";
+
 
 // Register logic
 const registerUser = async (req, res) => {
@@ -36,11 +38,13 @@ const registerUser = async (req, res) => {
     });
 
     await newUser.save();
-
+    // generate jwt
+    const token = generateToken(newUser._id);
     // Success response
     return res.status(201).json({
       success: true,
       message: "User registered successfully!",
+      token,
       data: {
         name: newUser.name,
         email: newUser.email,

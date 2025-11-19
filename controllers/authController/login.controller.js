@@ -1,5 +1,6 @@
 import User from "../../models/user.model.js";
 import bcrypt from "bcrypt";
+import generateToken from "../../utils/generateToken.js";
 
 const login = async (req, res) => {
   try {
@@ -34,10 +35,14 @@ const login = async (req, res) => {
         message: "Invalid email or password",
       });
     }
+
+    // generate jwt 
+    const token = generateToken(user._id);
     // 4. Success
     return res.status(200).json({
       success: true,
       message: "Login successful!",
+      token,
       data: {
         name: user.name,
         email: user.email,
