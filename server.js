@@ -2,6 +2,7 @@ import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 import express from "express";
 import authRoutes from "./routes/auth.routes.js";
+import articleRouter from "./routes/article.routes.js";
 dotenv.config();
 connectDB();
 
@@ -12,6 +13,9 @@ app.use(express.json());
 
 // Auth routes
 app.use("/api/auth", authRoutes);
+
+// Articles Routes
+app.use("/api/articles" ,articleRouter);
 
 // Test route
 app.get("/", (req, res) => {
