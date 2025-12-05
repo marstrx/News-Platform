@@ -4,10 +4,10 @@ const addArticle = async (req, res) => {
   try {
     const { title, content, image, category, author } = req.body;
 
-    if (!title || !content || !category) {
+    if (!title || !content) {
       return res.status(400).json({
         success: false,
-        message: "Title, content and category are required",
+        message: "Title and content are required",
       });
     }
 
@@ -15,7 +15,6 @@ const addArticle = async (req, res) => {
       title,
       content,
       image,
-      category,
       author,
     });
 

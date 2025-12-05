@@ -7,7 +7,7 @@ const articalSchema = new Schema(
     slug: { type: String, unique: true },
     content: { type: String, required: true },
     image: { type: String },
-    category: { type: Schema.Types.ObjectId, ref: "Category" },
+    // category: { type: Schema.Types.ObjectId, ref: "Category" },
     author: { type: Schema.Types.ObjectId, ref: "User" },
     views: { type: Number, default: 0 },
   },
