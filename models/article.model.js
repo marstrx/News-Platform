@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import slugify from "slugify";
 
 const articalSchema = new Schema(
   {
@@ -12,6 +13,33 @@ const articalSchema = new Schema(
   },
   { timestamps: true }
 );
+
+articleSchema.pre("validate", async function (next) {
+  if (!this.title) return next();
+
+  // Generate base slug
+  let baseSlug = slugify(this.title, { lower: true, strict: true });
+  let slug = baseSlug;
+
+  // Check if slug already exists
+  const existingArticle = await mongoose.models.Article.findOne({ slug });
+
+  if (
+    existingArticle &&
+    existingArticle._id.toString() !== this._id.toString()
+  ) {
+    let counter = 2;
+    while (
+      await mongoose.models.Article.findOne({ slug: `${baseSlug}-${counter}` })
+    ) {
+      counter++;
+    }
+    slug = `${baseSlug}-${counter}`;
+  }
+
+  this.slug = slug;
+  next();
+});
 
 const Article = mongoose.model("Article", articalSchema);
 // Export Article modal
