@@ -14,7 +14,7 @@ const articalSchema = new Schema(
   { timestamps: true }
 );
 
-articleSchema.pre("validate", async function (next) {
+articalSchema.pre("validate", async function (next) {
   if (!this.title) return next();
 
   // Generate base slug
