@@ -11,9 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/marstrx/News-Platform.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["News"],
+  "author": "Marstrx",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/marstrx/News-Platform/issues"
   },
