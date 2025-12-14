@@ -32,7 +32,18 @@ const updateArticleById = async (req, res) => {
 
     // save the updated article
     await article.save();
-  } catch (error) {}
+    res.status(200).json({
+      success: true,
+      message: "Article updated successfully",
+      article,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server error during updating article",
+      error: error.message,
+    });
+  }
 };
 
 export default updateArticleById;
