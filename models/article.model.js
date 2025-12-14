@@ -14,8 +14,8 @@ const articalSchema = new Schema(
   { timestamps: true }
 );
 
-articalSchema.pre("validate", async function (next) {
-  if (!this.title) return next();
+articalSchema.pre("validate", async function () {
+  if (!this.title) return;
 
   // Generate base slug
   let baseSlug = slugify(this.title, { lower: true, strict: true });
@@ -38,7 +38,7 @@ articalSchema.pre("validate", async function (next) {
   }
 
   this.slug = slug;
-  next();
+
 });
 
 const Article = mongoose.model("Article", articalSchema);

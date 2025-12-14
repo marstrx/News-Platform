@@ -16,8 +16,7 @@ app.use("/api/auth", authRoutes);
 
 // Articles Routes
 app.use("/api/articles" ,articleRouter);
-// Add new Article
-app.use("/api/articles" ,articleRouter);
+
 
 
 // Test route
