@@ -1,17 +1,34 @@
 import Article from "../../models/article.model.js";
 
+const deleteOneArticleById = async (req, res) => {
+  try {
+    // get the id
+    const { id } = req.params;
 
-const DeleteOneArticleById= async(req,res)=>{
-    try {
-        
-    } catch (error) {
-        return res.status(500).json({
-            success: false,
-            message: "Server error during Deleting this Article",
-        })
+    const article = await Article.findById(id);
+
+    if (!article) {
+      return res.status(404).json({
+        success: false,
+        message: "Article not found",
+      });
     }
-}
+    // delete the article by id
+    await Article.findByIdAndDelete(id);
 
-// export the DeleteOneArticleById function
+    return res.status(200).json({
+      success: true,
+      message: "Article deleted successfully",
+    });
 
-export default DeleteOneArticleById;
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Server error during deleting article",
+      error: error.message,
+    });
+  }
+};
+
+// export deleteOneArticleById function
+export default deleteOneArticleById;
