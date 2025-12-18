@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Header from './Layoutes/Header/Header.jsx';
 
 function App() {
   return (
-    <div className='text-center text-7xl text-yellow-400'>App</div>
+    <div>
+      <Header />
+    </div>
   )
 }
 
