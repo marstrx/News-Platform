@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom"
-function Login() {
+import AuthHero from "../Auth/AuthHero"
+import { JSX } from "react"
+function Login() :JSX.Element {
   return (
     <div className="flex">
-    <div>
-      <h2>Nex is here</h2>
-      <h2>for you</h2>
-    </div>
-    <div>
       <div>
-        <Link to={"/register"}>Register</Link>
-        <Link to={"/login"}>Login</Link>
+        <AuthHero title="Nex is here" subtitle="For you" />
       </div>
-    </div>
+      <div>
+        <div>
+          <Link to={"/register"}>Register</Link>
+          <Link to={"/login"}>Login</Link>
+        </div>
+      </div>
     </div>
   )
 }
