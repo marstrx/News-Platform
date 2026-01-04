@@ -5,13 +5,13 @@ import AuthHero from "../Auth/AuthHero"
 function SignUp(): JSX.Element {
     return (
         <div className="flex">
-            <div>
-                <AuthHero title="Join Nex" subtitle="Create your account" />
-            </div>
+
+            <AuthHero title="Join Nex" subtitle="Create your account" />
+
             <div>
                 <div>
                     <Link to={"/register"}>Register</Link>
-                    <Link to={"/login"}>Login</Link>
+                    <Link to={"/login"}>Sign in</Link>
                 </div>
             </div>
         </div>
