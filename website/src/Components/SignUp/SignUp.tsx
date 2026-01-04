@@ -5,7 +5,7 @@ import AuthHero from "../Auth/AuthHero"
 function SignUp(): JSX.Element {
     return (
         <div className="min-h-screen flex">
-            <AuthHero title="Nex is here" subtitle="For you" />
+            <AuthHero title="Join Nex" subtitle="Create your account" />
 
             <div className="flex-1 flex flex-col justify-center items-center px-8">
                 {/* Navigation Tabs */}
