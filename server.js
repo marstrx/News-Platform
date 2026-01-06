@@ -1,12 +1,19 @@
 import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 import express from "express";
+import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import articleRouter from "./routes/article.routes.js";
 dotenv.config();
 connectDB();
 
 const app = express();
+
+// cors
+app.use(cors({
+  origin : "http://localhost:5000",
+  credentials :true
+}));
 
 // Middleware to parse JSON
 app.use(express.json());
