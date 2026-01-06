@@ -1,8 +1,33 @@
 import { Link } from "react-router-dom"
 import AuthHero from "../Auth/AuthHero"
-import { JSX } from "react"
+import { JSX, useState } from "react"
+import Api from "../../Services/api"
+import * as React from "react";
 
 function Login(): JSX.Element {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+
+  const handelSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const res = await Api.post("/auth/login", {
+        email,
+        password
+      })
+
+      console.log("LOGIN SUCCESS");
+
+    } catch (error: any) {
+      console.log(error);
+      setError(error.response?.data?.message || "Login failed")
+    }
+  }
   return (
     <div className="min-h-screen flex">
       <AuthHero title="Nex is here" subtitle="For you" />
@@ -25,17 +50,21 @@ function Login(): JSX.Element {
         </div>
 
         {/* Login Form */}
-        <form className="w-full max-w-md">
+        <form onSubmit={handelSubmit} className="w-full max-w-md">
           <div className="flex flex-col gap-6 mb-6">
             <input
               className="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:border-[#36656B]"
               type="text"
               placeholder="Username or email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               className="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:border-[#36656B]"
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={(e => setPassword(e.target.value))}
             />
           </div>
 
