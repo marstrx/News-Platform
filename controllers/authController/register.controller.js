@@ -2,7 +2,6 @@ import User from "../../models/user.model.js";
 import bcrypt from "bcrypt";
 import generateToken from "../../utils/generateToken.js";
 
-
 // Register logic
 const registerUser = async (req, res) => {
   try {
@@ -40,11 +39,20 @@ const registerUser = async (req, res) => {
     await newUser.save();
     // generate jwt
     const token = generateToken(newUser._id);
+
+    // cookies
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
     // Success response
     return res.status(201).json({
       success: true,
       message: "User registered successfully!",
-      token,
+
       data: {
         name: newUser.name,
         email: newUser.email,
