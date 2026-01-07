@@ -4,6 +4,7 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import articleRouter from "./routes/article.routes.js";
+import cookieParser from "cookie-parser";
 dotenv.config();
 connectDB();
 
@@ -14,6 +15,9 @@ app.use(cors({
   origin : "http://localhost:5173",
   credentials :true
 }));
+
+// cookies
+app.use(cookieParser());
 
 // Middleware to parse JSON
 app.use(express.json());
