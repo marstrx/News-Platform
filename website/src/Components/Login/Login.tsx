@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import AuthHero from "../Auth/AuthHero"
 import { JSX, useState } from "react"
 import Api from "../../Services/api"
@@ -9,6 +9,7 @@ function Login(): JSX.Element {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
 
   const handelSubmit = async (e: React.FormEvent) => {
@@ -21,7 +22,7 @@ function Login(): JSX.Element {
         password
       })
 
-      console.log("LOGIN SUCCESS");
+      navigate("/")
 
     } catch (error: any) {
       console.log(error);
