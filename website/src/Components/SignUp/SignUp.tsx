@@ -1,8 +1,33 @@
-import { JSX } from "react"
-import { Link } from "react-router-dom"
+import { JSX, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import AuthHero from "../Auth/AuthHero"
+import Api from "../../Services/api"
+import * as React from "react";
+
 
 function SignUp(): JSX.Element {
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
+
+    const handelSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            const res = await Api.post("/auth/register", {
+                name,
+                email,
+                password
+            })
+
+            navigate("/")
+
+        } catch (error: any) {
+            console.log(error);
+        }
+    }
     return (
         <div className="min-h-screen flex">
             <AuthHero title="Join Nex" subtitle="Create your account" />
@@ -25,27 +50,30 @@ function SignUp(): JSX.Element {
                 </div>
 
                 {/* Login Form */}
-                <form className="w-full max-w-md">
+                <form onSubmit={handelSubmit} className="w-full max-w-md">
                     <div className="flex flex-col gap-6 mb-6">
-                        <input
-                            className="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:border-[#36656B]"
-                            type="text"
-                            placeholder="Full name"
-                        />
+
                         <input
                             className="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:border-[#36656B]"
                             type="email"
                             placeholder="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <input
                             className="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:border-[#36656B]"
                             type="text"
-                            placeholder="username"
+                            placeholder="Full name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+
                         />
                         <input
                             className="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:border-[#36656B]"
                             type="password"
                             placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
 
