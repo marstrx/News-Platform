@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState, ReactNode } from "react";
-import Api from "../Services/api";
+import Api from "../Services/Api";
 
 type AuthContextType = {
     isAuth: boolean;
@@ -15,13 +15,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const [isAuth, setIsAuth] = useState(false);
 
     useEffect(() => {
-        Api.get("/auth/me", { withCredentials: true })
+        Api.get("/auth/me")
             .then(() => setIsAuth(true))
             .catch(() => setIsAuth(false));
     }, []);
 
     const logout = async () => {
-        await Api.post("/auth/logout", {}, { withCredentials: true });
+        await Api.post("/auth/logout");
         setIsAuth(false);
     };
 

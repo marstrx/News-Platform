@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { JSX } from "react";
 import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 
 function Header(): JSX.Element {
+  const { isAuth, logout } = useContext(AuthContext);
   return (
     <header className="px-4 py-4 bg-[#132440] text-[#FDB5CE] text-lg font-mono">
       <nav className="flex justify-between">
@@ -26,8 +28,22 @@ function Header(): JSX.Element {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/news">News</Link></li>
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/register">Register</Link></li>
+          {!isAuth ? (
+            <>
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/register">Register</Link></li>
+            </>
+          ) : (
+            <>
+              <li><Link to="/profile">Profile</Link></li>
+              <li>
+                <button onClick={logout} className="hover:underline">
+                  Logout
+                </button>
+              </li>
+            </>
+          )}
+
         </ul>
       </nav>
     </header>
