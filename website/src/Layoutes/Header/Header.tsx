@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { JSX } from "react";
+import { useContext } from "react";
+
 
 function Header(): JSX.Element {
   return (
