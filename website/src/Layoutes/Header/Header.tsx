@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { JSX } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import Profile from "../../Components/Profile/Profile";
 
 
 function Header(): JSX.Element {
