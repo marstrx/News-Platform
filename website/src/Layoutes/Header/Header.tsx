@@ -9,7 +9,7 @@ function Header(): JSX.Element {
   const { isAuth, logout } = useContext(AuthContext);
   return (
     <header className="px-4 py-4 bg-[#132440] text-[#FDB5CE] text-lg font-mono">
-      <nav className="flex justify-between">
+      <nav className="flex justify-between items-center">
         <Link to="/">
           <svg
             width="30"
@@ -35,12 +35,20 @@ function Header(): JSX.Element {
             </>
           ) : (
             <>
-              <li><Link to="/profile">Profile</Link></li>
               <li>
+                <Link to="/profile" className="flex justify-center items-center border border-white rounded px-3">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000000"><g fill="none" stroke="#fff" stroke-width="1"><path stroke-linejoin="round" d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" /><circle cx="12" cy="7" r="3" /></g></svg>
+
+                  <svg className="mt-1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48"><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M36 18L24 30L12 18" /></svg>
+                </Link>
+
+              </li>
+              {/* <li>
                 <button onClick={logout} className="hover:underline">
                   Logout
                 </button>
-              </li>
+              </li> */}
             </>
           )}
 

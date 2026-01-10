@@ -2,7 +2,10 @@ import { JSX } from "react"
 
 function Profile() :JSX.Element {
   return (
-    <div>Profile</div>
+    <div>
+        <img src="" alt="" />
+        <input type="text" />
+    </div>
   )
 }
 
