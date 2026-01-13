@@ -1,7 +1,7 @@
 import { JSX, useState } from "react"
 import { useContext } from "react"
 import { AuthContext } from "../../Context/AuthContext"
-import { log } from "node:console";
+
 
 function Profile(): JSX.Element {
   const { user } = useContext(AuthContext);
@@ -25,14 +25,38 @@ function Profile(): JSX.Element {
               <p className="text-2xl text-emerald-900 font-mono">Email :</p>
               <p className="text-2xl text-emerald-900 font-mono">{user?.email}</p>
             </div>
-            <button onClick={()=>setIsEditing(true)} className="bg-[#a43100] rounded text-white p-2 w-full mt-20 font-mono cursor-pointer">Edit My Information</button>
+            <button onClick={() => setIsEditing(true)} className="bg-[#a43100] rounded text-white p-2 w-full mt-20 font-mono cursor-pointer">Edit My Information</button>
           </div>
         </div>
       ) :
-        (<div>
-          {/* Edit Mod */}
+        (
+          <div className="flex justify-center items-center w-full">
+            <div className="flex flex-col gap-5 px-20 py-28 w-full max-w-md">
+              <div className="flex flex-col">
+                <label htmlFor="fullName">Full name</label>
+                <input
+                  id="fullName"
+                  type="text"
+                  className="border px-3 py-2 rounded-md"
+                />
+              </div>
 
-        </div>)
+              <div className="flex flex-col">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  className="border px-3 py-2 rounded-md"
+                />
+              </div>
+
+              <div className="flex justify-evenly items-center gap-3">
+                <button className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Save</button>
+                <button className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Cancel</button>
+              </div>
+            </div>
+          </div>
+        )
       }
     </div>
   )
