@@ -37,6 +37,7 @@ function Profile(): JSX.Element {
                 <input
                   id="fullName"
                   type="text"
+                  value={user?.name}
                   className="border px-3 py-2 rounded-md"
                 />
               </div>
@@ -46,6 +47,7 @@ function Profile(): JSX.Element {
                 <input
                   id="email"
                   type="email"
+                  value={user?.name}
                   className="border px-3 py-2 rounded-md"
                 />
               </div>
