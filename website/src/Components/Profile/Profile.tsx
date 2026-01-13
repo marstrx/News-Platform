@@ -19,11 +19,11 @@ function Profile(): JSX.Element {
           <div className="flex flex-col justify-center items-start gap-5 px-20 py-28">
             <div className="flex items-center gap-10">
               <p className="text-2xl text-emerald-900 font-mono">Full name :</p>
-              <p className="text-2xl text-emerald-900 font-mono">{user?.name}</p>
+              <p className="text-2xl text-emerald-900 font-mono">{user?.name || "-"}</p>
             </div>
             <div className="flex items-center gap-10">
               <p className="text-2xl text-emerald-900 font-mono">Email :</p>
-              <p className="text-2xl text-emerald-900 font-mono">{user?.email}</p>
+              <p className="text-2xl text-emerald-900 font-mono">{user?.email || "-"}</p>
             </div>
             <button onClick={() => setIsEditing(true)} className="bg-[#a43100] rounded text-white p-2 w-full mt-20 font-mono cursor-pointer">Edit My Information</button>
           </div>
