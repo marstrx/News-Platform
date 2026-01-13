@@ -52,7 +52,7 @@ function Profile(): JSX.Element {
 
               <div className="flex justify-evenly items-center gap-3">
                 <button className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Save</button>
-                <button className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Cancel</button>
+                <button onClick={() => window.location.reload()} className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Cancel</button>
               </div>
             </div>
           </div>
