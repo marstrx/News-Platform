@@ -1,6 +1,7 @@
-import { JSX, useState } from "react"
+import { JSX, useEffect, useState } from "react"
 import { useContext } from "react"
 import { AuthContext } from "../../Context/AuthContext"
+import Api from "../../Services/api";
 
 
 function Profile(): JSX.Element {
@@ -9,6 +10,14 @@ function Profile(): JSX.Element {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+    }
+  }, [user])
 
   return (
     <div className="h-screen px-5 py-14 bg-blend-multiply">
@@ -37,7 +46,8 @@ function Profile(): JSX.Element {
                 <input
                   id="fullName"
                   type="text"
-                  value={user?.name}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="border px-3 py-2 rounded-md"
                 />
               </div>
@@ -47,7 +57,8 @@ function Profile(): JSX.Element {
                 <input
                   id="email"
                   type="email"
-                  value={user?.name}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="border px-3 py-2 rounded-md"
                 />
               </div>
