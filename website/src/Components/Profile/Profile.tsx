@@ -5,7 +5,7 @@ import Api from "../../Services/api";
 
 
 function Profile(): JSX.Element {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false);
 
   const [name, setName] = useState("");
@@ -18,6 +18,31 @@ function Profile(): JSX.Element {
       setEmail(user.email);
     }
   }, [user])
+
+  const handelSaveProfile = async () => {
+    try {
+      const res = await Api.put("/auth/update", {
+        name,
+        email,
+      });
+
+      // Update auth context
+      setUser(res.data.user);
+
+      setIsEditing(false);
+    } catch (error: any) {
+      alert(error.response?.data?.message || "Update failed");
+    }
+  };
+
+
+  const handleCancel = () => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+    }
+    setIsEditing(false);
+  };
 
   return (
     <div className="h-screen px-5 py-14 bg-blend-multiply">
@@ -64,8 +89,8 @@ function Profile(): JSX.Element {
               </div>
 
               <div className="flex justify-evenly items-center gap-3">
-                <button className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Save</button>
-                <button onClick={() => window.location.reload()} className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Cancel</button>
+                <button onClick={handelSaveProfile} className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Save</button>
+                <button onClick={handleCancel} className="bg-[#a43100] rounded text-white p-2 font-mono cursor-pointer w-full">Cancel</button>
               </div>
             </div>
           </div>
