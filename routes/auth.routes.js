@@ -4,6 +4,7 @@ import login from "../controllers/authController/login.controller.js";
 import protect from "../middlewares/auth.middleware.js";
 import logout from "../controllers/authController/logout.controller.js";
 import User from "../models/user.model.js";
+import updateProfile from "../controllers/authController/update.controller.js";
 
 const router = express.Router();
 
@@ -30,5 +31,7 @@ router.post("/register", registerUser);
 router.post("/login", login);
 // logout
 router.post("/logout" , logout);
+// update profile
+router.put("/update", protect , updateProfile)
 
 export default router;
