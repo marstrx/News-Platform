@@ -6,6 +6,7 @@ type User = {
     _id: string,
     name: string,
     email: string
+    role:string
 }
 
 type AuthContextType = {
@@ -46,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     return (
-        <AuthContext.Provider value={{ isAuth, user, setUser, logout }}>
+        <AuthContext.Provider value={{ isAuth, user, setUser, logout  }}>
             {children}
         </AuthContext.Provider>
     );
