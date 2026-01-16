@@ -9,6 +9,7 @@ import About from "./Components/About/About";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import AddArticle from "./Components/News/AddArticle";
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
+import AdminRoute from "./Components/ProtectedRoute/AdminRoute";
 import { JSX } from "react";
 
 function App(): JSX.Element {
@@ -22,7 +23,11 @@ function App(): JSX.Element {
           </ProtectedRoute>} />
           <Route path="/news" element={<Articles />} />
           <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={
+            <AdminRoute>
+              <Dashboard />
+            </AdminRoute>
+          } />
           <Route path="/addArticle" element={<AddArticle />} />
 
         </Route>
