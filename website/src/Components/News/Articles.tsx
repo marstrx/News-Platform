@@ -9,7 +9,7 @@ type Article = {
   slug:string;
 };
 
-function News(): JSX.Element {
+function Articles(): JSX.Element {
   const [news, setNews] = useState<Article[]>([]);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ function News(): JSX.Element {
   );
 }
 
-export default News;
+export default Articles;

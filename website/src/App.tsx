@@ -4,8 +4,10 @@ import MainLayout from "./Layoutes/MainLayout/MainLayout";
 import Home from "./Components/Home/Home";
 import SignUp from "./Components/SignUp/SignUp";
 import Profile from "./Components/Profile/Profile";
-import News from "./Components/News/News";
+import Articles from "./Components/News/Articles";
 import About from "./Components/About/About";
+import Dashboard from "./Components/Dashboard/Dashboard";
+import AddArticle from "./Components/News/AddArticle";
 import { JSX } from "react";
 
 function App(): JSX.Element {
@@ -15,8 +17,10 @@ function App(): JSX.Element {
         <Route element={<MainLayout />}>
           <Route path="/" element={< Home />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/news" element={<News />} />
+          <Route path="/news" element={<Articles />} />
           <Route path="/about" element={<About />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/addArticle" element={<AddArticle />} />
 
         </Route>
         <Route path="/login" element={<Login />} />
