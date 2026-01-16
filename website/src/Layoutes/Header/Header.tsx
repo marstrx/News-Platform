@@ -60,9 +60,9 @@ function Header(): JSX.Element {
 
       </header>
       {
-        isProfileClicked ? (
+        isAuth && isProfileClicked && (
           <ProfileCard />
-        ) : ""
+        )
       }
     </>
   );
