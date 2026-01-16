@@ -5,6 +5,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import articleRouter from "./routes/article.routes.js";
 import cookieParser from "cookie-parser";
+import adminRoutes from "./routes/admin.routes.js";
 dotenv.config();
 connectDB();
 
@@ -28,7 +29,8 @@ app.use("/api/auth", authRoutes);
 // Articles Routes
 app.use("/api/articles" ,articleRouter);
 
-
+// Admin only routes 
+app.use("/api/dashboard" , adminRoutes);
 
 // Test route
 app.get("/", (req, res) => {
