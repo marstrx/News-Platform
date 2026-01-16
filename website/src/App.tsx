@@ -8,6 +8,7 @@ import Articles from "./Components/News/Articles";
 import About from "./Components/About/About";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import AddArticle from "./Components/News/AddArticle";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 import { JSX } from "react";
 
 function App(): JSX.Element {
@@ -16,7 +17,9 @@ function App(): JSX.Element {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={< Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>} />
           <Route path="/news" element={<Articles />} />
           <Route path="/about" element={<About />} />
           <Route path="/dashboard" element={<Dashboard />} />
