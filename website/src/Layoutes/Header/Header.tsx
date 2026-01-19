@@ -108,7 +108,7 @@ function Header(): JSX.Element {
         )}
       </header>
 
-      <div className="h-16 sm:h-20"></div>
+      {/* <div className="h-16 sm:h-20"></div> */}
 
       {isAuth && isProfileClicked && <ProfileCard />}
     </>
