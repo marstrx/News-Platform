@@ -37,7 +37,7 @@ function Home(): JSX.Element {
   return (
     <div className="bg-linear-to-br from-amber-50 via-orange-50 to-amber-100">
       {/* Hero Section */}
-      <section className="bg-[#132440] text-white flex items-center justify-center" style={{ minHeight: 'calc(100vh - 64px)' }}>
+      <section className="h-screen bg-[#132440] text-white flex items-center justify-center" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-mono mb-4 sm:mb-6 lg:mb-8">
