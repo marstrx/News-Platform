@@ -1,9 +1,7 @@
-import { JSX } from "react"
+import { JSX } from "react";
 
-function About() :JSX.Element {
-  return (
-    <div>About</div>
-  )
+function About(): JSX.Element {
+  return <div>About</div>;
 }
 
-export default About
+export default About;

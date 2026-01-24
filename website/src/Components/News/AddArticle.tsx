@@ -1,9 +1,7 @@
-import { JSX } from "react"
+import { JSX } from "react";
 
 function AddArticle(): JSX.Element {
-  return (
-    <div>AddArticle</div>
-  )
+  return <div>AddArticle</div>;
 }
 
-export default AddArticle
+export default AddArticle;

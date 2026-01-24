@@ -12,10 +12,12 @@ connectDB();
 const app = express();
 
 // cors
-app.use(cors({
-  origin : "http://localhost:5173",
-  credentials :true
-}));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }),
+);
 
 // cookies
 app.use(cookieParser());
@@ -27,10 +29,10 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 
 // Articles Routes
-app.use("/api/articles" ,articleRouter);
+app.use("/api/articles", articleRouter);
 
-// Admin only routes 
-app.use("/api/dashboard" , adminRoutes);
+// Admin only routes
+app.use("/api/dashboard", adminRoutes);
 
 // Test route
 app.get("/", (req, res) => {

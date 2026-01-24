@@ -17,23 +17,29 @@ function App(): JSX.Element {
     <>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={< Home />} />
-          <Route path="/profile" element={<ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>} />
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/news" element={<Articles />} />
           <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={
-            <AdminRoute>
-              <Dashboard />
-            </AdminRoute>
-          } />
+          <Route
+            path="/dashboard"
+            element={
+              <AdminRoute>
+                <Dashboard />
+              </AdminRoute>
+            }
+          />
           <Route path="/addArticle" element={<AddArticle />} />
-
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />
-
       </Routes>
     </>
   );

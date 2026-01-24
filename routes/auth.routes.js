@@ -8,30 +8,28 @@ import updateProfile from "../controllers/authController/update.controller.js";
 
 const router = express.Router();
 
-
-router.get("/me", protect, async(req, res) => {
+router.get("/me", protect, async (req, res) => {
   try {
     const user = await User.findById(req.userId).select("-password");
 
-    if(!user){
+    if (!user) {
       return res.status(404).json({
-        succuss:false,
-        message :"user not found"
-      })
+        succuss: false,
+        message: "user not found",
+      });
     }
 
-    res.json(user)
+    res.json(user);
   } catch (error) {
     res.status(500).json({ message: "Server error" });
-    
   }
 });
 
 router.post("/register", registerUser);
 router.post("/login", login);
 // logout
-router.post("/logout" , logout);
+router.post("/logout", logout);
 // update profile
-router.put("/update", protect , updateProfile)
+router.put("/update", protect, updateProfile);
 
 export default router;

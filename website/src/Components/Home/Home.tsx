@@ -37,14 +37,15 @@ function Home(): JSX.Element {
   return (
     <div className="bg-linear-to-br from-amber-50 via-orange-50 to-amber-100">
       {/* Hero Section */}
-      <section className="h-screen bg-[#132440] text-white flex items-center justify-center" >
+      <section className="h-screen bg-[#132440] text-white flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-mono mb-4 sm:mb-6 lg:mb-8">
               Welcome to <span className="text-[#FDB5CE]">Nex News</span>
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-gray-300 mb-8 sm:mb-10 lg:mb-12 max-w-4xl mx-auto leading-relaxed">
-              Stay ahead with the latest technology insights, innovations, and breaking news from around the world
+              Stay ahead with the latest technology insights, innovations, and
+              breaking news from around the world
             </p>
             <Link
               to="/news"
@@ -104,7 +105,14 @@ function Home(): JSX.Element {
 
                     <div className="flex items-center justify-between pt-4 border-t border-amber-100">
                       <div className="flex items-center gap-2 text-amber-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-4 h-4 sm:w-5 sm:h-5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
                           <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                           <circle cx="12" cy="12" r="3" />
                         </svg>

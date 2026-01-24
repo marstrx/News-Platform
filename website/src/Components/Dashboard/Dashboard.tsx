@@ -1,11 +1,7 @@
-import { JSX } from "react"
+import { JSX } from "react";
 
 function Dashboard(): JSX.Element {
-  return (
-    <>
-    
-    </>
-  )
+  return <></>;
 }
 
-export default Dashboard
+export default Dashboard;
